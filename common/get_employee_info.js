@@ -9,6 +9,8 @@ const baseUser = require('./base_user');
 
 const getEmployeeInfo = (employeeIds, cache, email = null) => {
   let user = baseUser;
+  console.log('In getEmployeeInfo');
+
   const conn = getDbConnection('mds');
   let employeeIdsLookup = Promise.resolve(employeeIds);
   if (employeeIds === null || employeeIds.length === 0) {

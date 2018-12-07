@@ -15,6 +15,7 @@ const resolverMap = {
       return version;
     },
     user(obj, args, context) {
+      console.log('In user endpoint');
       return context.cache.get(context.session.id)
         .then((cData) => {
           if (cData && cData.user) {

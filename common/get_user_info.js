@@ -24,6 +24,7 @@ const getNonCityUser = (isLoggedIn, req, cache) => {
 };
 
 const getUserInfo = (isLoggedIn, config, req, cache) => {
+  console.log('In getUserInfo');
   const isGoogle = (req.session.loginProvider === 'Google');
   if (isLoggedIn && config.onlyEmployeeLogins) {
     const email = req.session.email.toLowerCase();
