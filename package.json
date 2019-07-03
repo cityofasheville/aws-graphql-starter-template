@@ -33,7 +33,9 @@
     "win-deploy": "aws cloudformation deploy --template-file packaged-sam.yaml --stack-name %npm_package_config_cloudFormationStackName% --capabilities CAPABILITY_IAM --region %npm_package_config_region%",
     "win-package-deploy": "npm run win-package && npm run win-deploy",
     "win-delete-stack": "aws cloudformation delete-stack --stack-name %npm_package_config_cloudFormationStackName% --region %npm_package_config_region%",
-    "win-setup": "npm install && (aws s3api get-bucket-location --bucket %npm_package_config_s3BucketName% --region %npm_package_config_region% || npm run win-create-bucket) && npm run win-package-deploy"
+    "win-setup": "npm install && (aws s3api get-bucket-location --bucket %npm_package_config_s3BucketName% --region %npm_package_config_region% || npm run win-create-bucket) && npm run win-package-deploy",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "license": "Apache-2.0",
   "dependencies": {
@@ -56,6 +58,8 @@
     "memorystore": "^1.6.0",
     "mssql": "^4.3.0",
     "pg": "^7.7.1",
-    "pug": "^2.0.0-rc.1"
-  }
+    "pug": "^2.0.0-rc.1",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
